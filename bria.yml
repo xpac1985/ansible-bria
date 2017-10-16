@@ -1,0 +1,4 @@
+---
+- hosts: bria
+  roles:
+    - dotfiles
