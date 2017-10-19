@@ -1,1 +1,1 @@
-ansible-playbook bria.yml --ask-become-pass
+ansible-playbook bria.yml --ask-become-pass "$@"

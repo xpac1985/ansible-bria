@@ -1,0 +1,23 @@
+- name: add apt repository for keepass plugins
+  apt_repository:
+    update_cache: no
+    repo: "ppa:dlech/keepass2-plugins"
+    codename: "artful"
+  become: yes
+
+- name: install keepass and friends
+  apt:
+    update_cache: yes
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - keepass2
+    - mono-complete
+    - xdotool
+    - keepass2-plugin-keeagent
+    - keepass2-plugin-keepasshttp
+#    - keepass2-plugin-status-notifier
+    - keepass2-plugin-tray-icon
+#    - keepass2-plugin-application-indicator
+    - keepass2-plugin-application-menu
+  become: yes

@@ -1,0 +1,43 @@
+- name: install thinkfan
+  package:
+    name: thinkfan
+    state: latest
+  become: yes
+
+- name: enable thinkpad_acpi kernel module loading
+  blockinfile:
+    path: /etc/modprobe.d/thinkfan.conf
+    create: yes
+    block: |
+      options thinkpad_acpi fan_control=1
+  become: yes
+
+- name: create thinkfan daemon config file
+  blockinfile:
+    path: /etc/default/thinkfan
+    create: yes
+    block: |
+      START=yes
+      DAEMON_ARGS="-q -b 1 -s 3"
+  become: yes
+
+- name: create thinkfan config file
+  blockinfile:
+    path: /etc/thinkfan.conf
+    create: yes
+    block: |
+      (0, 0,  55)
+      (1, 48, 60)
+      (2, 50, 61)
+      (3, 52, 63)
+      (4, 56, 65)
+      (5, 59, 66)
+      (7, 63, 78)
+      (127, 75, 32767)
+
+      hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp2_input
+      hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp3_input
+      hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+
+      tp_fan /proc/acpi/ibm/fan
+  become: yes

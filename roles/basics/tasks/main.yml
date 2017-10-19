@@ -1,0 +1,23 @@
+- name: install basic tools
+  apt:
+    update_cache: yes
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - bmon
+    - chromium
+    - htop
+    - glances
+    - iotop
+    - iptstate
+    - keepass2
+    - multitail
+    - mtr
+    - nethogs
+    - nmon
+    - peco
+    - powertop
+    - seafile-cli
+    - seafile-gui
+    - tmux
+  become: yes

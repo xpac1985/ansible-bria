@@ -3,7 +3,7 @@
     name: git
     state: latest
     use: apt
-  become: true
+  become: yes
 
 - name: clone dotfiles repo
   git:

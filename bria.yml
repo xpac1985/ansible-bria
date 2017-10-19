@@ -1,4 +1,7 @@
 ---
 - hosts: bria
   roles:
-    - dotfiles
+    - { role: dotfiles, tags: 'dotfiles' }
+    - { role: basics, tags: 'basics' }
+    - { role: sublime3, tags: 'sublime3' }
+    - { role: keepass, tags: 'keepass' }
