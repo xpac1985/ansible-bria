@@ -19,5 +19,4 @@
 #    - keepass2-plugin-status-notifier
     - keepass2-plugin-tray-icon
 #    - keepass2-plugin-application-indicator
-    - keepass2-plugin-application-menu
   become: yes

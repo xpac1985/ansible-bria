@@ -4,6 +4,7 @@
     name: "{{ item }}"
     state: latest
   with_items:
+    - bc
     - bmon
     - chromium
     - htop
@@ -19,5 +20,6 @@
     - powertop
     - seafile-cli
     - seafile-gui
+    - thunderbird
     - tmux
   become: yes

@@ -1,0 +1,10 @@
+- name: install cups and hplib
+  package:
+    name: {{ item }}
+    state: latest
+    use: apt
+  with_item:
+    - cups
+    - hplib
+    - hplib-gui
+  become: yes
